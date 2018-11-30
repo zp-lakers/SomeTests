@@ -9,3 +9,14 @@
 
 mysql运行报The server time zone value 'ÖÐ¹ú±ê×¼Ê±¼ä' is unrecognized or represents more than one time zone的解决方法
 进入mysql成功后:从错误即可知道是时区的错误，因此只要将时区设置为你当前系统时区即可，set global time_zero = '+8:00';
+
+
+github上传文件:
+本地进入要上传的文件夹例如：要将lakers文件夹下的test文件提交上来
+1.进入lakers文件夹，右键打开git bash here
+2.git init，执行之后会在该文件夹下创建一个.git的隐藏文件
+3.git add .   ：表示将该文件下的所有文件添加到仓库中。 或者将 "."换成要添加的文件或者文件夹
+4.git commit -m "注释语句"  提交到仓库
+5.打开github上的repository，复制项目地址
+6.执行：git remote add origin  https://github.com/zp-lakers/codes.git
+7.git push -u origin master  提交到仓库。后续就按照提示输入github的用户名和密码
