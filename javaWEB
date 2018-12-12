@@ -1,0 +1,62 @@
+tomcat解压之后的目录：
+  bin：可执行文件（startup.bat shutdown.bat）
+  conf:配置文件（server.xml）
+  lib：tomcat依赖的jar文件
+  log：日志文件 纪录tomcat启动和运行期间的日志信息
+  temp：临时文件
+  webapps：可执行的项目
+  work：存放.jsp文件翻译成的.java文件以及编译成的.class文件
+  
+  tomcat运行依赖JDK，需要配置JAVA_HOME
+  tomcat启动的时候有可能会与别的程序端口冲突，引起错误，修改server.xml中的端口号
+  tomcat启动之后访问浏览器:http://localhost:8080默认访问的是webapps下的ROOT项目
+  常见的状态码：
+    200：正常返回
+    300/301：页面重定向
+    404：资源不存在
+    403:权限不足,（访问的目录不可见）
+    500:服务器内部错误（代码问题）
+    
+jsp:宏观的来说，jsp就是在html页面中嵌套java代码 <%   java代码....... %>
+
+
+虚拟路径:
+  server.xml中的<Engine></Engine>中的host标签中配置项目的虚拟路径
+  默认配置的虚拟路径是webapps
+  在<host></host>中增加一个虚拟路劲操作:
+  <Context docBase="实际项目的路径" path="浏览器访问的路径(相对路径是相对于webapps)"/>
+  每一个项目的虚拟路劲需要增加一个<Context>(区分大小写，首字母大写)标签来映射
+  
+JSP执行流程:
+  jsp-->java(其实是一个servlet文件)--->class文件
+  这个java文件和class文件放在tomcat下的work目录中
+  
+  第一次请求服务器的jsp资源时，会将jsp文件进行翻译（成java文件），编译（成class文件）
+  所以第一次访问会比较慢，第二次就直接使用class文件
+  
+jsp页面中的脚本语言（Java代码），有三种形式：
+ 第一种：
+ <%
+    局部变量，java语句
+  %>
+  第二种：
+  <%!
+    全局变量，方法
+  %>
+  第三种：
+  <%=输出表达式%>
+  
+  例如：在同一个jsp页面中
+  <%!
+    public String bookName;
+    public void init(){
+      bookName = "java 书籍..."；
+    }
+  %>
+ <%
+    out.print("hello");
+    init();
+ %>
+ <%=bookName%>
+  
+  
