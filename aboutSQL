@@ -1,0 +1,2 @@
+1.select * from users where length(name) = 6; 查询表中name字段长度为6的数据(mysql与oracle都可以使用)
+2.
