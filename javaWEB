@@ -60,3 +60,24 @@ jsp页面中的脚本语言（Java代码），有三种形式：
  <%=bookName%>
   
   
+  session 和cookie  session是保存在服务端的 cookie是保存在客户端 安全性来说 session更高 
+  
+ 客户端第一次请求服务端的时候 服务器端会为该请求产生一个session对象(用户保存用户请求信息)，
+ 并且这个session有一个唯一的sessionID来唯一区分每个会话，然后服务端会产生一个cookie对象，
+ 并且该cookie的 name=JESSIONID value=刚刚的sessionID，在服务端响应客户端的时候会将这个cookie
+ 发送给客户端,这样在这个会话中，客户端就可以和服务端一一对应起来（通过cookie的JSESSIONID和sessionID）
+ 
+ session的机制：
+  1.session是存放在服务端
+  2.session是同一个用户（客户）请求过程中共享
+  3.实现机制：第一次客户端请求时产生一个SessionID然后复制给Cookie的JSESSIONID,并且返回给客户端，通过
+    这两个值的一一对应来确定是否在同一个会话中
+    
+  session方法:
+  String getId() :获取sessionID
+  boolean isNew()：判断是否是第一次访问
+  void invalidate(); 使用session失效(一般退出登录，注销等使用)
+  void setAttribute(String key,String value);
+  Object getAttribute(String key);
+  void setMaxInactiveInterval(int 秒):设置最大有效非活动时间
+  int getMaxInactiveInterval(); 获取最大有效非活动时间
