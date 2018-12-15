@@ -81,3 +81,13 @@ jsp页面中的脚本语言（Java代码），有三种形式：
   Object getAttribute(String key);
   void setMaxInactiveInterval(int 秒):设置最大有效非活动时间
   int getMaxInactiveInterval(); 获取最大有效非活动时间
+  
+  浏览器直接在地址栏按回车是按照当前的地址请求，但是并不会带上参数什么的。
+  而按F5刷新的时候，会重复此前的动作，比如之前进入这个页面的时候是提交了数据的，
+    那么按F5之后会依照之前的请求参数再发一次请求
+    
+   
+   
+    
+    
+  
