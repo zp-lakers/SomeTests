@@ -1,2 +1,16 @@
 1.select * from users where length(name) = 6; 查询表中name字段长度为6的数据(mysql与oracle都可以使用)
-2.
+
+
+.+----+--------------+---------------------------+-------+---------+
+| id | name         | url                       | alexa | country |
++----+--------------+---------------------------+-------+---------+
+| 1  | Google       | https://www.google.cm/    | 1     | USA     |
+| 2  | 淘宝          | https://www.taobao.com/   | 13    | CN      |
+| 3  | 菜鸟教程      | http://www.runoob.com/    | 4689  | CN      |
+| 4  | 微博          | http://weibo.com/         | 20    | CN      |
+| 5  | Facebook     | https://www.facebook.com/ | 3     | USA     |
++----+--------------+---------------------------+-------+---------+
+2.使用distinct ：
+  SELECT DISTINCT country FROM Websites;  SELECT DISTINCT(country) FROM Websites; 都可以
+3.select * from Websites where id != 1 and id <> 2; != 和<>都表示不等于
+4.SELECT * FROM Websites ORDER BY country,alexa; 先按照country排序，一样的时候再按照alexa排序
