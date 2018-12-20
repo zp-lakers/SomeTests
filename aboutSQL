@@ -14,3 +14,16 @@
   SELECT DISTINCT country FROM Websites;  SELECT DISTINCT(country) FROM Websites; 都可以
 3.select * from Websites where id != 1 and id <> 2; != 和<>都表示不等于
 4.SELECT * FROM Websites ORDER BY country,alexa; 先按照country排序，一样的时候再按照alexa排序
+
+
+分页：
+  MYSQL： select * from users limit 2,4; 查询4条，从第3条开始，显示第3，4，5，6条记录
+  ORACLE: select * from (select u.*,rownum rn from user where rownum <= 6) where run > 3 
+          子查询查询的是前6条记录，外层查询是子查询结果中的条数大于3的记录
+          
+模糊匹配：LIKE
+  select from user where name like 【'%aa%'(包含aa),'a%'(以a开头)，'%a'(以a结尾).'_a_'(三位并且中间是a),'_a'(两位且尾字母是a)】;下划线可以是多位
+  
+  MySQL 中使用 REGEXP 或 NOT REGEXP 运算符 (或 RLIKE 和 NOT RLIKE) 来操作正则表达式。
+  例如: SELECT * FROM user WHERE name REGEXP '^[A-H]'; 查询name字段以A-H开头的数据
+  
