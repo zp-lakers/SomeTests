@@ -6,11 +6,6 @@
   进入mysql成功后，出现 mysql> 标志，再输入“ ALTER USER USER() IDENTIFIED BY '新密码'；”即可修改密码。
 
 
-
-mysql运行报The server time zone value 'ÖÐ¹ú±ê×¼Ê±¼ä' is unrecognized or represents more than one time zone的解决方法
-进入mysql成功后:从错误即可知道是时区的错误，因此只要将时区设置为你当前系统时区即可，set global time_zero = '+8:00';
-
-
 github上传文件:
 本地进入要上传的文件夹例如：要将lakers文件夹下的test文件提交上来
 1.进入lakers文件夹，右键打开git bash here
